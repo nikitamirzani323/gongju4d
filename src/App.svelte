@@ -32,11 +32,12 @@
       </div> 
     </article>
   </section>
-
-  <div class="titleweb">
-    <hr>
-    <h4>다음 그림</h4>
-  </div>
+  <section class="divider mt-2">
+    <h4 class="text-[pink] text-2xl">다음 그림</h4>
+  </section>
+  <section class="mt-2 border-2 border-solid border-green-500 p-2">
+    <p class="text-[#74aa63] text-2xl">아침(왼쪽)과 밤(오른쪽) 출애굽</p>
+  </section>
 
 </main>
 
@@ -45,4 +46,14 @@
   @tailwind components;
   @tailwind utilities;
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+  .divider{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+    margin-top: 1rem/* 16px */;
+    margin-bottom: 1rem/* 16px */;
+    height: 1rem/* 16px */;
+    white-space: nowrap;
+  }
 </style>
