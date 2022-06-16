@@ -3,9 +3,6 @@
     import { getDatabase, ref, onValue } from "firebase/database";
     import dayjs from "dayjs";
     import Carousel from '../lib/Carousel.svelte'
-    import bg_day from '../assets/images/day.png'
-    import bg_night from '../assets/images/night.png'
-    import keluaran from '../assets/images/keluaran.jpg'
 
     const firebaseConfig = {
         apiKey: "AIzaSyBqVRbGvJBb1JEfKYyN6jgocZjzsx2lN2A",
@@ -226,7 +223,7 @@
         <p class="text-[#74aa63] text-4xl font-poppins font-extrabold">아침(왼쪽)과 밤(오른쪽) 출애굽</p>
         <div class="grid grid-cols-2 gap-2 w-full my-16">
             <div class="w-full relative">
-                <img src="{bg_day}" alt="">
+                <img src="images/night.png" alt="">
                 <div class="flex justify-center gap-16 absolute top-10 left-16">
                 <span class="text-6xl text-white">{temp_day_hour}</span>
                 <span class="text-6xl text-white mx-4">{temp_day_minute}</span>
@@ -234,7 +231,7 @@
                 </div>
             </div>
             <div class="w-full relative">
-                <img src="{bg_night}" alt="">
+                <img src="images/day.png" alt="">
                 <div class="flex justify-center gap-16 absolute top-10 left-20">
                 <span class="text-6xl text-white">{temp_night_hour}</span>
                 <span class="text-6xl text-white mx-4">{temp_night_minute}</span>
@@ -249,5 +246,5 @@
     <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-3 left-10 z-auto w-1/6">오늘의 출력</h2>
 </section>
 <section class="my-16 w-full relative">
-    <img class="w-full" src="{keluaran}" alt="">
+    <img class="w-full" src="images/keluaran.jpg" alt="">
 </section>

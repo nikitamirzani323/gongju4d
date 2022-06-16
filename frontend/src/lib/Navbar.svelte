@@ -1,12 +1,11 @@
 <script>
     import { link } from "svelte-spa-router";
-    import logo from '../assets/images/logo.png'
 </script>
 <header class="sticky top-0 z-30 flex w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content lg:shadow-sm">
   <nav class="navbar bg-base-100">
     <div class="flex-1">
       <a class="btn btn-ghost normal-case text-xl" use:link href="/">
-        <img src="{logo}" alt="결공주 Lottery Pools / 집">
+        <img src="images/logo.png" alt="결공주 Lottery Pools / 집">
       </a>
     </div>
     <div class="flex-none">

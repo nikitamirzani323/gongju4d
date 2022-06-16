@@ -1,7 +1,4 @@
-<script>
-    import banner_payment from '../assets/images/banner_payment.jpg'
-</script>
-<img class="w-full mt-10" src="{banner_payment}" alt="결공주 Lottery Pools / 집">
+<img class="w-full mt-10" src="images/banner_payment.jpg" alt="결공주 Lottery Pools / 집">
 <section class="p-10">
     <p class="text-2xl text-center font-poppins font-medium">
       공주 복권은 정확한 4자리 숫자를 맞추면 됩니다. 원하는 4자리 조합을

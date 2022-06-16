@@ -1,9 +1,6 @@
-<script>
-    import aboutme from '../assets/images/about-me.png'
-</script>
 <div class="flex flex-row mt-10">
     <section class="w-full self-center">
-        <img  src="{aboutme}" alt="결공주 Lottery Pools / 집">
+        <img  src="images/about-me.png" alt="결공주 Lottery Pools / 집">
     </section>
     <section class="p-10">
         <p class="text-2xl text-center font-poppins">

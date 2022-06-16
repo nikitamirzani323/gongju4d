@@ -1,7 +1,4 @@
-<script>
-    import responsible from '../assets/images/responsible.jpg'
-</script>
-<img class="w-full mt-10" src="{responsible}" alt="결공주 Lottery Pools / 집">
+<img class="w-full mt-10" src="images/responsible.jpg" alt="결공주 Lottery Pools / 집">
 <section class="p-10">
     <p class="text-2xl text-center font-poppins">
         Gonju Lottery Pools는 통제되지 않을 경우 플레이어의 삶에 부정적인

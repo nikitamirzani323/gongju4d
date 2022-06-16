@@ -9,12 +9,19 @@
   import About from "./pages/about.svelte";
   import Responsibility from "./pages/responsibility.svelte";
   import NotFound from "./pages/NotFound.svelte";
+  export let path_api = "";
   let routes = "";
   routes = {
 			"/": wrap({
+        props: {
+						path_api: path_api,
+				},
 				component: Home,
 			}),
       "/result": wrap({
+        props: {
+						path_api: path_api,
+				},
 				component: Result,
 			}),
       "/payment": wrap({
