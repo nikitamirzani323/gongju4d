@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  frontend-gongju:
+    container_name: frontend-gongju
+    image: frontend-gongju:0.0.1
+    build: .
+    volumes:
+    - ./svelte:/app/svelte
+    ports:
+      - 7075:7075
+    restart: always
