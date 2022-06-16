@@ -6,7 +6,7 @@
         <img  src="{aboutme}" alt="결공주 Lottery Pools / 집">
     </section>
     <section class="p-10">
-        <p class="text-2xl text-center">
+        <p class="text-2xl text-center font-poppins">
             공주 복권 풀은 공주 복권에 관한 결과와 정보를 제공하기 위해 최선을
             다하고 있습니다. 여기에는 일반 플레이어이든 복권 세계에 완전히
             익숙하지 않은 관계없이 게임에 대해 알아야 할 모든 것이 포함됩니다.

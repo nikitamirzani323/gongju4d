@@ -38,10 +38,11 @@
 </main>
 
 <style global lang="postcss">
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+  
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
   .divider{
     display: flex;
     flex-direction: row;
