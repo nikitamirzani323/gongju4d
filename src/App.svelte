@@ -1,44 +1,40 @@
 <script>
-  import banner_0 from './assets/images/banner-0.jpg'
-  import banner_1 from './assets/images/banner-1.jpg'
-  import banner_2 from './assets/images/banner-2.jpg'
+  import Router from "svelte-spa-router";
+	import { wrap } from "svelte-spa-router/wrap";
   import Navbar from './lib/Navbar.svelte'
+  import Footer from './lib/Footer.svelte'
+  import Home from "./pages/home.svelte";
+  import Result from "./pages/result.svelte";
+  import Payment from "./pages/payment.svelte";
+  import About from "./pages/about.svelte";
+  import Responsibility from "./pages/responsibility.svelte";
+  import NotFound from "./pages/NotFound.svelte";
+  let routes = "";
+  routes = {
+			"/": wrap({
+				component: Home,
+			}),
+      "/result": wrap({
+				component: Result,
+			}),
+      "/payment": wrap({
+				component: Payment,
+			}),
+      "/about": wrap({
+				component: About,
+			}),
+      "/responsibility": wrap({
+				component: Responsibility,
+			}),
+			"*": NotFound,
+	};
 </script>
 
 <main class="p-2 lg:p-3 max-w-6xl mx-auto  mt-2 mb-2 font-['Verdana']">
   <Navbar />
-  <section class="flex gap-2">
-    <article class="carousel w-full">
-      <div id="slide1" class="carousel-item relative w-full">
-        <img src="{banner_0}" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide4" class="btn btn-circle">❮</a> 
-          <a href="#slide2" class="btn btn-circle">❯</a>
-        </div>
-      </div> 
-      <div id="slide2" class="carousel-item relative w-full">
-        <img src="{banner_1}" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide1" class="btn btn-circle">❮</a> 
-          <a href="#slide3" class="btn btn-circle">❯</a>
-        </div>
-      </div> 
-      <div id="slide3" class="carousel-item relative w-full">
-        <img src="{banner_2}" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide2" class="btn btn-circle">❮</a> 
-          <a href="#slide4" class="btn btn-circle">❯</a>
-        </div>
-      </div> 
-    </article>
-  </section>
-  <section class="divider mt-2">
-    <h4 class="text-[pink] text-2xl">다음 그림</h4>
-  </section>
-  <section class="mt-2 border-2 border-solid border-green-500 p-2">
-    <p class="text-[#74aa63] text-2xl">아침(왼쪽)과 밤(오른쪽) 출애굽</p>
-  </section>
-
+  <Router {routes} />
+  
+  <Footer />
 </main>
 
 <style global lang="postcss">
