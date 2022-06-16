@@ -20,7 +20,7 @@ func Init() *fiber.App {
 	app.Use(requestid.New())
 	app.Use(etag.New())
 	// Custom config
-	app.Static("/", "frontend/public", fiber.Static{
+	app.Static("/", "frontend/dist", fiber.Static{
 		Compress:  true,
 		ByteRange: true,
 		Browse:    true,

@@ -17,15 +17,23 @@
     const db = getDatabase(app);
     const sdsb4dday = ref(db, "sdsb4dday");
     const sdsb4dnight = ref(db, "sdsb4dnight");
-    let listsdsbday = [];
+    export let path_api = "";
+    let listgongjuday = [];
     let listsdsbnight = [];
     let size_image = "40";
     let size_clock = "50";
     let day_date_draw = "";
-    let day_next_draw = "";
+    let day_next_year = "";
+    let day_next_month = "";
+    let day_next_day = "";
     let day_prize1 = "";
     let day_prize2 = "";
     let day_prize3 = "";
+    let day_1_prize1 = "0";
+    let day_2_prize1 = "0";
+    let day_3_prize1 = "0";
+    let day_4_prize1 = "0";
+
     let day_img_1_prize1 = "number/ball-null.svg";
     let day_img_2_prize1 = "number/ball-null.svg";
     let day_img_3_prize1 = "number/ball-null.svg";
@@ -62,11 +70,16 @@
     onValue(sdsb4dday, (snapshot) => {
         const data = snapshot.val();
         day_date_draw = data["datedraw"];
-        day_next_draw = dayjs(data["nextdraw"]).format("DD-MMM-YYYY");
+        day_next_year = dayjs(data["nextdraw"]).format("YYYY");
+        day_next_month = dayjs(data["nextdraw"]).format("MM");
+        day_next_day = dayjs(data["nextdraw"]).format("DD");
         day_prize1 = data["prize1"];
         day_prize2 = data["prize2"];
         day_prize3 = data["prize3"];
-        console.log(day_prize1)
+        day_1_prize1 = day_prize1[0];
+        day_2_prize1 = day_prize1[1];
+        day_3_prize1 = day_prize1[2];
+        day_4_prize1 = day_prize1[3];
         day_img_1_prize1 = getImage(day_prize1[0]);
         day_img_2_prize1 = getImage(day_prize1[1]);
         day_img_3_prize1 = getImage(day_prize1[2]);
@@ -210,13 +223,49 @@
         }
         return urlimg;
     }
+    async function initgongjuDAY() {
+        const resPasar = await fetch(path_api+"api/listgongjuday", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        });
+        if (!resPasar.ok) {
+            const pasarMessage = `An error has occured: ${resPasar.status}`;
+            throw new Error(pasarMessage);
+        } else {
+            const jsonPasar = await resPasar.json();
+            if (jsonPasar.status == 200) {
+                let record = jsonPasar.record;
+                if (record != null) {
+                    for (var i = 0; i < record.length; i++) {
+                        listgongjuday = [
+                            ...listgongjuday,
+                            {
+                                sdsbday_date: record[i]["sdsbday_date"],
+                                sdsbday_prize1: record[i]["sdsbday_prize1"],
+                                sdsbday_prize2: record[i]["sdsbday_prize2"],
+                                sdsbday_prize3: record[i]["sdsbday_prize3"],
+                            },
+                        ];
+                    }
+                } else {
+                    alert("Error");
+                }
+            } else {
+                alert("Error");
+            }
+        }
+    }
+    // initgongjuDAY()
   </script>
-<section class="flex gap-2 my-16">
+<section class="hidden lg:flex gap-2 my-16">
     <Carousel />
 </section>
 <section class="my-16 w-full relative">
     <hr class="w-full bg-[pink] h-[2px] ">
-    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-3 left-10 z-auto w-1/6">다음 그림</h2>
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto ">다음 그림</h2>
 </section>
 <section class="border-solid border-4  border-[#74aa63] my-16 rounded-lg  p-5">
     <div class="flex flex-col my-16">
@@ -224,18 +273,18 @@
         <div class="grid grid-cols-2 gap-2 w-full my-16">
             <div class="w-full relative">
                 <img src="images/night.png" alt="">
-                <div class="flex justify-center gap-16 absolute top-10 left-16">
-                <span class="text-6xl text-white">{temp_day_hour}</span>
-                <span class="text-6xl text-white mx-4">{temp_day_minute}</span>
-                <span class="text-6xl text-white -mx-2">{temp_day_second}</span>
+                <div class="flex justify-center gap-20 absolute top-10 left-24">
+                    <span class="text-6xl text-white">{temp_day_hour}</span>
+                    <span class="text-6xl text-white mx-4">{temp_day_minute}</span>
+                    <span class="text-6xl text-white -mx-2">{temp_day_second}</span>
                 </div>
             </div>
             <div class="w-full relative">
                 <img src="images/day.png" alt="">
-                <div class="flex justify-center gap-16 absolute top-10 left-20">
-                <span class="text-6xl text-white">{temp_night_hour}</span>
-                <span class="text-6xl text-white mx-4">{temp_night_minute}</span>
-                <span class="text-6xl text-white -mx-2">{temp_night_second}</span>
+                <div class="flex justify-center gap-20 absolute top-10 right-24">
+                    <span class="text-6xl text-white">{temp_night_hour}</span>
+                    <span class="text-6xl text-white mx-4">{temp_night_minute}</span>
+                    <span class="text-6xl text-white -mx-2">{temp_night_second}</span>
                 </div>
             </div>
         </div>
@@ -243,8 +292,18 @@
 </section>
 <section class="my-16 w-full relative">
     <hr class="w-full bg-[pink] h-[2px] ">
-    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-3 left-10 z-auto w-1/6">오늘의 출력</h2>
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">오늘의 출력</h2>
 </section>
 <section class="my-16 w-full relative">
     <img class="w-full" src="images/keluaran.jpg" alt="">
+    <div class="flex justify-items-center  w-full absolute top-10 left-10">
+        <div class="text-white text-xs lg:text-2xl w-full mx-5">일등 상</div>
+        <div class="text-white text-xs lg:text-2xl w-full text-right mr-20">{day_next_year}년 {day_next_month}월 {day_next_day}일</div>
+    </div>
+    <div class="flex justify-items-center  w-full absolute top-44 gap-2 text-center">
+        <div class="text-white text-4xl w-full">{day_1_prize1}</div>
+        <div class="text-white text-4xl w-full">{day_2_prize1}</div>
+        <div class="text-white text-4xl w-full">{day_3_prize1}</div>
+        <div class="text-white text-4xl w-full">{day_4_prize1}</div>
+    </div>
 </section>

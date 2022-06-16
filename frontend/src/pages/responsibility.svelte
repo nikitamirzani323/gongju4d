@@ -1,3 +1,7 @@
+<section class="my-16 w-full relative">
+    <hr class="w-full bg-[pink] h-[2px] ">
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">책임감 있게 플레이</h2>
+</section>
 <img class="w-full mt-10" src="images/responsible.jpg" alt="결공주 Lottery Pools / 집">
 <section class="p-10">
     <p class="text-2xl text-center font-poppins">

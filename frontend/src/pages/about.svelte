@@ -1,3 +1,7 @@
+<section class="my-16 w-full relative">
+    <hr class="w-full bg-[pink] h-[2px] ">
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">우리에 대해</h2>
+</section>
 <div class="flex flex-row mt-10">
     <section class="w-full self-center">
         <img  src="images/about-me.png" alt="결공주 Lottery Pools / 집">

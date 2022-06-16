@@ -37,7 +37,7 @@
 	};
 </script>
 
-<main class="p-2 lg:p-3 max-w-6xl mx-auto  mt-2 mb-2 font-['Verdana']">
+<main class="p-2 lg:p-3 max-w-6xl mx-auto  mt-2 mb-2 ">
   <Navbar />
   <Router {routes} />
   

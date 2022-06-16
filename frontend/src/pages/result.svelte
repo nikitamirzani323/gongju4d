@@ -1,3 +1,7 @@
+<section class="my-16 w-full relative">
+    <hr class="w-full bg-[pink] h-[2px] ">
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">산출</h2>
+</section>
 <div class="overflow-x-auto mt-10 mb-10">
     <table class="table w-full">
       <!-- head -->

@@ -1,3 +1,7 @@
+<section class="my-16 w-full relative">
+    <hr class="w-full bg-[pink] h-[2px] ">
+    <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">지불하는 방법</h2>
+</section>
 <img class="w-full mt-10" src="images/banner_payment.jpg" alt="결공주 Lottery Pools / 집">
 <section class="p-10">
     <p class="text-2xl text-center font-poppins font-medium">

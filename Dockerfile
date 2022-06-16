@@ -1,31 +1,35 @@
-FROM golang:alpine AS totobuild
-WORKDIR /go/src/bitbucket.org/isbtotogroup/frontend_svelte
+FROM golang:alpine AS agenclientbuilds
+WORKDIR /appbuilds
 COPY . .
-RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o app .
+RUN go mod tidy
+RUN go build -o binary
 
 # ---- Svelte Base ----
-FROM node:lts-alpine AS totosveltebase
+FROM node:lts-alpine AS totosveltebaseagen
 WORKDIR /svelteapp
 COPY [ "frontend/package.json" , "frontend/yarn.lock"  , "./"]
 
 # ---- Svelte Dependencies ----
-FROM totosveltebase AS totosveltedep
+FROM totosveltebaseagen AS totosveltedepagen
 RUN yarn
 RUN cp -R node_modules prod_node_modules
 
 #
 # ---- Svelte Builder ----
-FROM totosveltebase AS totosveltebuilder
-COPY --from=totosveltedep /svelteapp/prod_node_modules ./node_modules
-COPY ./svelte .
+FROM totosveltebaseagen AS totosveltebuilderagen
+COPY --from=totosveltedepagen /svelteapp/prod_node_modules ./node_modules
+COPY ./frontend .
 RUN yarn build
 
-# Moving the binary to the 'final Image' to make it smaller
-FROM alpine:latest as totosvelterelease
+FROM alpine:latest as agenclientrelease
 WORKDIR /app
-RUN mkdir -p ./svelte/public
-COPY --from=totosveltebuilder /svelteapp/public ./svelte/public
-COPY --from=totobuild /go/src/bitbucket.org/isbtotogroup/frontend_svelte/app .
-EXPOSE 7075
-CMD ["./app"]
+RUN apk add tzdata
+COPY --from=totosveltebuilderagen /svelteapp/dist ./frontend/dist
+COPY --from=agenclientbuilds /appbuilds/binary .
+COPY --from=agenclientbuilds /appbuilds/.env /app/.env
+ENV PORT=7075
+ENV TZ=Asia/Jakarta
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+ENTRYPOINT [ "./binary" ]
