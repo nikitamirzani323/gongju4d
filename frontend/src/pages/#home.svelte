@@ -138,8 +138,6 @@
     let tab_night = ""
     let panel_day = true
     let panel_night = false
-
-    
     onValue(sdsb4dnight, (snapshot) => {
         const data = snapshot.val();
         night_date_draw = data["datedraw"];
@@ -232,18 +230,16 @@
         }
         return urlimg;
     }
-    let title_livedraw = "공주의 날"
+   
     const handleTab = (e) => {
         switch(e){
             case "day":
-                title_livedraw = "공주의 날"
                 tab_day = "bg-[#74aa63]"
                 tab_night = ""
                 panel_day = true
                 panel_night = false
                 break;
             case "night":
-                title_livedraw = "공주의 밤"
                 tab_day = ""
                 tab_night = "bg-[#74aa63]"
                 panel_day = false
@@ -270,15 +266,16 @@
 {#if panel_day}
     <section class="border-solid border-4  border-[#74aa63] mt-5 mb-10 rounded-3xl p-2 lg:p-5">
         <div class="flex flex-col my-2">
-            <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold">{title_livedraw}</p>
+            <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold">공주의 날</p>
+           
             <div class="flex justify-around w-full gap-2  ">
-                <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
+                <span class="countdown font-mono text-5xl  lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
                     <span style="--value:{temp_day_hour};"></span>
                 </span>
-                <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
+                <span class="countdown font-mono text-5xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
                     <span style="--value:{temp_day_minute};"></span>
                 </span>
-                <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
+                <span class="countdown font-mono text-5xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
                     <span style="--value:{temp_day_second};"></span>
                 </span>
             </div>
@@ -294,7 +291,7 @@
             <div class="text-white text-xs lg:text-2xl w-full mx-5">1등상</div>
             <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{day_next_year}년 {day_next_month}월 {day_next_day}일</div>
         </div>
-        <div class="hidden lg:flex justify-around  w-full absolute top-24 left-0 ">
+        <div class="hidden lg:flex justify-around  w-full absolute top-28 left-0 ">
             <img class="w-[200px]" src="{day_img_1_prize1}" alt="">
             <img class="w-[200px]" src="{day_img_2_prize1}" alt="">
             <img class="w-[200px]" src="{day_img_3_prize1}" alt="">
@@ -303,7 +300,7 @@
         <div class="hidden lg:flex justify-around w-full">
             <div class="flex flex-col absolute bottom-16 left-16 gap-2">
                 <div class="text-white text-xs lg:text-2xl w-full">2등상</div>
-                <div class="flex justify-start gap-10  w-full  ">
+                <div class="flex justify-start gap-20  w-full  ">
                     <img class="" src="{day_img_1_prize2}" alt="">
                     <img class="" src="{day_img_2_prize2}" alt="">
                     <img class="" src="{day_img_3_prize2}" alt="">
@@ -312,7 +309,7 @@
             </div>
             <div class="flex flex-col absolute bottom-16 right-16 gap-2">
                 <div class="text-white text-xs lg:text-2xl w-full">3등상</div>
-                <div class="flex justify-start gap-10  w-full  ">
+                <div class="flex justify-start gap-20  w-full  ">
                     <img class="" src="{day_img_1_prize3}" alt="">
                     <img class="" src="{day_img_2_prize3}" alt="">
                     <img class="" src="{day_img_3_prize3}" alt="">
@@ -320,71 +317,68 @@
                 </div>
             </div>
         </div>
-        <div class="flex lg:hidden justify-around   w-full absolute top-6 left-0 ">
-            <img class="w-1/6" src="{day_img_1_prize1}" alt="">
-            <img class="w-1/6" src="{day_img_2_prize1}" alt="">
-            <img class="w-1/6" src="{day_img_3_prize1}" alt="">
-            <img class="w-1/6" src="{day_img_4_prize1}" alt="">
+        <div class="flex lg:hidden justify-around   w-full absolute top-8 left-0 ">
+            <img class="w-[50px]" src="{day_img_1_prize1}" alt="">
+            <img class="w-[50px]" src="{day_img_2_prize1}" alt="">
+            <img class="w-[50px]" src="{day_img_3_prize1}" alt="">
+            <img class="w-[50px]" src="{day_img_4_prize1}" alt="">
         </div>
-        <div class="flex flex-col lg:hidden  w-full absolute bottom-2">
-            <div class="flex  text-center gap-1 w-full">
-                <div class="text-white text-xs lg:text-2xl w-full self-center">2등상</div>
+        <div class="flex flex-col lg:hidden  w-full ">
+            <div class="flex absolute bottom-8 text-center gap-1 w-full">
+                <div class="text-white text-xs lg:text-2xl w-full">2등상</div>
                 <div class="flex justify-start gap-2  w-full  ">
-                    <img class="w-1/6" src="{day_img_1_prize2}" alt="">
-                    <img class="w-1/6" src="{day_img_2_prize2}" alt="">
-                    <img class="w-1/6" src="{day_img_3_prize2}" alt="">
-                    <img class="w-1/6" src="{day_img_4_prize2}" alt="">
+                    <img class="w-[20px]" src="{day_img_1_prize2}" alt="">
+                    <img class="w-[20px]" src="{day_img_2_prize2}" alt="">
+                    <img class="w-[20px]" src="{day_img_3_prize2}" alt="">
+                    <img class="w-[20px]" src="{day_img_4_prize2}" alt="">
                 </div>
             </div>
-            <div class="flex  text-center gap-1 w-full">
-                <div class="text-white text-xs lg:text-2xl w-full self-center">3등상</div>
+            <div class="flex absolute bottom-2 text-center gap-1 w-full">
+                <div class="text-white text-xs lg:text-2xl w-full">3등상</div>
                 <div class="flex justify-start gap-2  w-full  ">
-                    <img class="w-1/6" src="{day_img_1_prize3}" alt="">
-                    <img class="w-1/6" src="{day_img_2_prize3}" alt="">
-                    <img class="w-1/6" src="{day_img_3_prize3}" alt="">
-                    <img class="w-1/6" src="{day_img_4_prize3}" alt="">
+                    <img class="w-[20px]" src="{day_img_1_prize3}" alt="">
+                    <img class="w-[20px]" src="{day_img_2_prize3}" alt="">
+                    <img class="w-[20px]" src="{day_img_3_prize3}" alt="">
+                    <img class="w-[20px]" src="{day_img_4_prize3}" alt="">
                 </div>
             </div>
         </div>
     </section>
 {/if}
 {#if panel_night}
-    <section class="border-solid border-4  border-[#74aa63] mt-5 mb-10 rounded-3xl  p-2 lg:p-5">
+    <section class="border-solid border-4  border-[#74aa63] mt-5 mb-10 rounded-3xl  p-5">
         <div class="flex flex-col my-2">
-            <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold">{title_livedraw}</p>
-            <div class="flex justify-around w-full gap-2  ">
-                <span class="countdown text-center font-poppins text-4xl  lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
-                    <span style="--value:{temp_night_hour};"></span>
-                </span>
-                <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
-                    <span style="--value:{temp_night_minute};"></span>
-                </span>
-                <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
-                    <span style="--value:{temp_night_second};"></span>
-                </span>
+            <p class="text-[#74aa63] text-4xl font-poppins font-extrabold">공주의 밤</p>
+            <div class="w-full relative mt-10">
+                <img class="w-full" src="images/day.png" alt="">
+                <div class="flex justify-center  absolute top-5 w-full gap-36 -left-11 ">
+                    <span class="text-[150px] text-white text-center ">{temp_night_hour}</span>
+                    <span class="text-[150px] text-white text-center  ">{temp_night_minute}</span>
+                    <span class="text-[150px] text-white text-center ">{temp_night_second}</span>
+                </div>
             </div>
         </div>
     </section>
-    <section class="my-5 lg:my-16 w-full relative">
+    <section class="my-16 w-full relative">
         <hr class="w-full bg-[pink] h-[2px] ">
-        <h2 class="text-[pink] text-lg lg:text-3xl text-center bg-white absolute -top-4 left-10 z-auto">오늘의 출력</h2>
+        <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">오늘의 출력</h2>
     </section>
-    <section class="my-5 lg:my-16 w-full relative">
+    <section class="my-16 w-full relative">
         <img class="w-full z-0" src="images/background_xcferm.jpg" alt="">
-        <div class="flex justify-items-center  w-full absolute top-2 left-2 lg:top-10 lg:left-10 ">
+        <div class="flex justify-items-center  w-full absolute top-10 left-10">
             <div class="text-white text-xs lg:text-2xl w-full mx-5">1등상</div>
-            <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{night_next_year}년 {night_next_month}월 {night_next_day}일</div>
+            <div class="text-white text-xs lg:text-2xl w-full text-right mr-20">{night_next_year}년 {night_next_month}월 {night_next_day}일</div>
         </div>
-        <div class="hidden lg:flex justify-around  w-full absolute top-24 left-0 ">
+        <div class="flex justify-around   w-full absolute top-28 left-0 ">
             <img class="w-[200px]" src="{night_img_1_prize1}" alt="">
             <img class="w-[200px]" src="{night_img_2_prize1}" alt="">
             <img class="w-[200px]" src="{night_img_3_prize1}" alt="">
             <img class="w-[200px]" src="{night_img_4_prize1}" alt="">
         </div>
-        <div class="hidden lg:flex justify-around w-full">
+        <div class="flex justify-around w-full">
             <div class="flex flex-col absolute bottom-16 left-16 gap-2">
                 <div class="text-white text-xs lg:text-2xl w-full">2등상</div>
-                <div class="flex justify-start gap-10  w-full  ">
+                <div class="flex justify-start gap-20  w-full  ">
                     <img class="" src="{night_img_1_prize2}" alt="">
                     <img class="" src="{night_img_2_prize2}" alt="">
                     <img class="" src="{night_img_3_prize2}" alt="">
@@ -393,37 +387,11 @@
             </div>
             <div class="flex flex-col absolute bottom-16 right-16 gap-2">
                 <div class="text-white text-xs lg:text-2xl w-full">3등상</div>
-                <div class="flex justify-start gap-10  w-full  ">
+                <div class="flex justify-start gap-20  w-full  ">
                     <img class="" src="{night_img_1_prize3}" alt="">
                     <img class="" src="{night_img_2_prize3}" alt="">
                     <img class="" src="{night_img_3_prize3}" alt="">
                     <img class="" src="{night_img_4_prize3}" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="flex lg:hidden justify-around   w-full absolute top-6 left-0 ">
-            <img class="w-1/6" src="{night_img_1_prize1}" alt="">
-            <img class="w-1/6" src="{night_img_2_prize1}" alt="">
-            <img class="w-1/6" src="{night_img_3_prize1}" alt="">
-            <img class="w-1/6" src="{night_img_4_prize1}" alt="">
-        </div>
-        <div class="flex flex-col lg:hidden  w-full absolute bottom-2">
-            <div class="flex  text-center gap-1 w-full">
-                <div class="text-white text-xs lg:text-2xl w-full self-center">2등상</div>
-                <div class="flex justify-start gap-2  w-full  ">
-                    <img class="w-1/6" src="{night_img_1_prize2}" alt="">
-                    <img class="w-1/6" src="{night_img_2_prize2}" alt="">
-                    <img class="w-1/6" src="{night_img_3_prize2}" alt="">
-                    <img class="w-1/6" src="{night_img_4_prize2}" alt="">
-                </div>
-            </div>
-            <div class="flex  text-center gap-1 w-full">
-                <div class="text-white text-xs lg:text-2xl w-full self-center">3등상</div>
-                <div class="flex justify-start gap-2  w-full  ">
-                    <img class="w-1/6" src="{night_img_1_prize3}" alt="">
-                    <img class="w-1/6" src="{night_img_2_prize3}" alt="">
-                    <img class="w-1/6" src="{night_img_3_prize3}" alt="">
-                    <img class="w-1/6" src="{night_img_4_prize3}" alt="">
                 </div>
             </div>
         </div>

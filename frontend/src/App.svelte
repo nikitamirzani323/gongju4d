@@ -13,13 +13,13 @@
   let routes = "";
   routes = {
 			"/": wrap({
-        props: {
-						path_api: path_api,
-				},
 				component: Home,
 			}),
       "/result": wrap({
         props: {
+            props: {
+                path_api: path_api,
+            },
 						path_api: path_api,
 				},
 				component: Result,
@@ -37,12 +37,12 @@
 	};
 </script>
 
+<Navbar />
 <main class="p-2 lg:p-3 max-w-6xl mx-auto  mt-2 mb-2 ">
-  <Navbar />
   <Router {routes} />
-  
-  <Footer />
 </main>
+<Footer />
+
 
 <style global lang="postcss">
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
@@ -50,14 +50,4 @@
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
-  .divider{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: stretch;
-    margin-top: 1rem/* 16px */;
-    margin-bottom: 1rem/* 16px */;
-    height: 1rem/* 16px */;
-    white-space: nowrap;
-  }
 </style>
