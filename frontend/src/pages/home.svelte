@@ -34,18 +34,18 @@
     let day_3_prize1 = "0";
     let day_4_prize1 = "0";
 
-    let day_img_1_prize1 = "number/ball-null.svg";
-    let day_img_2_prize1 = "number/ball-null.svg";
-    let day_img_3_prize1 = "number/ball-null.svg";
-    let day_img_4_prize1 = "number/ball-null.svg";
-    let day_img_1_prize2 = "number/ball-null.svg";
-    let day_img_2_prize2 = "number/ball-null.svg";
-    let day_img_3_prize2 = "number/ball-null.svg";
-    let day_img_4_prize2 = "number/ball-null.svg";
-    let day_img_1_prize3 = "number/ball-null.svg";
-    let day_img_2_prize3 = "number/ball-null.svg";
-    let day_img_3_prize3 = "number/ball-null.svg";
-    let day_img_4_prize3 = "number/ball-null.svg";
+    let day_img_1_prize1 = "images/bungapink-blank.png";
+    let day_img_2_prize1 = "images/bungapeach-blank.png";
+    let day_img_3_prize1 = "images/bungahijau-blank.png";
+    let day_img_4_prize1 = "images/bungaungu-blank.png";
+    let day_img_1_prize2 = "images/bolakecilbiru-blank.png";
+    let day_img_2_prize2 = "images/bolakecilpink-blank.png";
+    let day_img_3_prize2 = "images/bolakecilmerah-blank.png";
+    let day_img_4_prize2 = "images/bolakecilungu-blank.png";
+    let day_img_1_prize3 = "images/bolakecilbiru-blank.png";
+    let day_img_2_prize3 = "images/bolakecilpink-blank.png";
+    let day_img_3_prize3 = "images/bolakecilmerah-blank.png";
+    let day_img_4_prize3 = "images/bolakecilungu-blank.png";
     let night_date_draw = "";
     let night_next_draw = "";
     let night_prize1 = "";
@@ -80,18 +80,18 @@
         day_2_prize1 = day_prize1[1];
         day_3_prize1 = day_prize1[2];
         day_4_prize1 = day_prize1[3];
-        day_img_1_prize1 = getImage(day_prize1[0]);
-        day_img_2_prize1 = getImage(day_prize1[1]);
-        day_img_3_prize1 = getImage(day_prize1[2]);
-        day_img_4_prize1 = getImage(day_prize1[3]);
-        day_img_1_prize2 = getImage(day_prize2[0]);
-        day_img_2_prize2 = getImage(day_prize2[1]);
-        day_img_3_prize2 = getImage(day_prize2[2]);
-        day_img_4_prize2 = getImage(day_prize2[3]);
-        day_img_1_prize3 = getImage(day_prize3[0]);
-        day_img_2_prize3 = getImage(day_prize3[1]);
-        day_img_3_prize3 = getImage(day_prize3[2]);
-        day_img_4_prize3 = getImage(day_prize3[3]);
+        // day_img_1_prize1 = getImage(day_prize1[0]);
+        // day_img_2_prize1 = getImage(day_prize1[1]);
+        // day_img_3_prize1 = getImage(day_prize1[2]);
+        // day_img_4_prize1 = getImage(day_prize1[3]);
+        // day_img_1_prize2 = getImage(day_prize2[0]);
+        // day_img_2_prize2 = getImage(day_prize2[1]);
+        // day_img_3_prize2 = getImage(day_prize2[2]);
+        // day_img_4_prize2 = getImage(day_prize2[3]);
+        // day_img_1_prize3 = getImage(day_prize3[0]);
+        // day_img_2_prize3 = getImage(day_prize3[1]);
+        // day_img_3_prize3 = getImage(day_prize3[2]);
+        // day_img_4_prize3 = getImage(day_prize3[3]);
         temp_day = dayjs(data["nextdraw"] + " 15:00:00").valueOf();
         setInterval(function () {
             let now = new Date().getTime();
@@ -191,34 +191,34 @@
         let urlimg = "";
         switch (e) {
             case "0":
-                urlimg = "number/ball-0.svg";
+                urlimg = "images/bungaungu-0.png";
                 break;
             case "1":
-                urlimg = "number/ball-1.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "2":
-                urlimg = "number/ball-2.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "3":
-                urlimg = "number/ball-3.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "4":
-                urlimg = "number/ball-4.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "5":
-                urlimg = "number/ball-5.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "6":
-                urlimg = "number/ball-6.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "7":
-                urlimg = "number/ball-7.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "8":
-                urlimg = "number/ball-8.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
             case "9":
-                urlimg = "number/ball-9.svg";
+                urlimg = "images/bungaungu-1.png";
                 break;
         }
         return urlimg;
@@ -295,15 +295,30 @@
     <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto">오늘의 출력</h2>
 </section>
 <section class="my-16 w-full relative">
-    <img class="w-full" src="images/keluaran.jpg" alt="">
+    <img class="w-full z-0" src="images/background_xcferm.jpg" alt="">
     <div class="flex justify-items-center  w-full absolute top-10 left-10">
         <div class="text-white text-xs lg:text-2xl w-full mx-5">일등 상</div>
         <div class="text-white text-xs lg:text-2xl w-full text-right mr-20">{day_next_year}년 {day_next_month}월 {day_next_day}일</div>
     </div>
-    <div class="flex justify-items-center  w-full absolute top-44 gap-2 text-center">
-        <div class="text-white text-4xl w-full">{day_1_prize1}</div>
-        <div class="text-white text-4xl w-full">{day_2_prize1}</div>
-        <div class="text-white text-4xl w-full">{day_3_prize1}</div>
-        <div class="text-white text-4xl w-full">{day_4_prize1}</div>
+    <div class="flex justify-around   w-full absolute top-32 left-0 ">
+        <img class="w-[200px]" src="{day_img_1_prize1}" alt="">
+        <img class="w-[200px]" src="{day_img_2_prize1}" alt="">
+        <img class="w-[200px]" src="{day_img_3_prize1}" alt="">
+        <img class="w-[200px]" src="{day_img_4_prize1}" alt="">
     </div>
+    <div class="flex justify-around w-full">
+        <div class="flex justify-start gap-20  w-full absolute bottom-10 left-16 ">
+            <img class="" src="{day_img_1_prize2}" alt="">
+            <img class="" src="{day_img_2_prize2}" alt="">
+            <img class="" src="{day_img_3_prize2}" alt="">
+            <img class="" src="{day_img_4_prize2}" alt="">
+        </div>
+        <div class="flex justify-end gap-20  w-full absolute bottom-10 right-16">
+            <img class="" src="{day_img_1_prize3}" alt="">
+            <img class="" src="{day_img_2_prize3}" alt="">
+            <img class="" src="{day_img_3_prize3}" alt="">
+            <img class="" src="{day_img_4_prize3}" alt="">
+        </div>
+    </div>
+    
 </section>
