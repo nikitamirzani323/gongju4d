@@ -267,25 +267,15 @@
     <hr class="w-full bg-[pink] h-[2px] ">
     <h2 class="text-[pink] text-3xl text-center bg-white absolute -top-4 left-10 z-auto ">다음 그림</h2>
 </section>
-<section class="border-solid border-4  border-[#74aa63] my-16 rounded-lg  p-5">
-    <div class="flex flex-col my-16">
-        <p class="text-[#74aa63] text-4xl font-poppins font-extrabold">아침(왼쪽)과 밤(오른쪽) 출애굽</p>
-        <div class="grid grid-cols-2 gap-2 w-full my-16">
-            <div class="w-full relative">
-                <img src="images/night.png" alt="">
-                <div class="flex justify-center gap-20 absolute top-10 left-24">
-                    <span class="text-6xl text-white">{temp_day_hour}</span>
-                    <span class="text-6xl text-white mx-4">{temp_day_minute}</span>
-                    <span class="text-6xl text-white -mx-2">{temp_day_second}</span>
-                </div>
-            </div>
-            <div class="w-full relative">
-                <img src="images/day.png" alt="">
-                <div class="flex justify-center gap-20 absolute top-10 right-24">
-                    <span class="text-6xl text-white">{temp_night_hour}</span>
-                    <span class="text-6xl text-white mx-4">{temp_night_minute}</span>
-                    <span class="text-6xl text-white -mx-2">{temp_night_second}</span>
-                </div>
+<section class="border-solid border-4  border-[#74aa63] my-16 rounded-3xl  p-5">
+    <div class="flex flex-col my-2">
+        <p class="text-[#74aa63] text-4xl font-poppins font-extrabold">공주의 날</p>
+        <div class="w-full relative">
+            <img class="w-full" src="images/day.png" alt="">
+            <div class="flex justify-center  absolute top-8 w-full gap-36 -left-11 ">
+                <span class="text-[150px] text-white text-center ">{temp_day_hour}</span>
+                <span class="text-[150px] text-white text-center  ">{temp_day_minute}</span>
+                <span class="text-[150px] text-white text-center ">{temp_day_second}</span>
             </div>
         </div>
     </div>
@@ -307,17 +297,23 @@
         <img class="w-[200px]" src="{day_img_4_prize1}" alt="">
     </div>
     <div class="flex justify-around w-full">
-        <div class="flex justify-start gap-20  w-full absolute bottom-10 left-16 ">
-            <img class="" src="{day_img_1_prize2}" alt="">
-            <img class="" src="{day_img_2_prize2}" alt="">
-            <img class="" src="{day_img_3_prize2}" alt="">
-            <img class="" src="{day_img_4_prize2}" alt="">
+        <div class="flex flex-col absolute bottom-16 left-16 gap-2">
+            <div class="text-white text-xs lg:text-2xl w-full">2등상</div>
+            <div class="flex justify-start gap-20  w-full  ">
+                <img class="" src="{day_img_1_prize2}" alt="">
+                <img class="" src="{day_img_2_prize2}" alt="">
+                <img class="" src="{day_img_3_prize2}" alt="">
+                <img class="" src="{day_img_4_prize2}" alt="">
+            </div>
         </div>
-        <div class="flex justify-end gap-20  w-full absolute bottom-10 right-16">
-            <img class="" src="{day_img_1_prize3}" alt="">
-            <img class="" src="{day_img_2_prize3}" alt="">
-            <img class="" src="{day_img_3_prize3}" alt="">
-            <img class="" src="{day_img_4_prize3}" alt="">
+        <div class="flex flex-col absolute bottom-16 right-16 gap-2">
+            <div class="text-white text-xs lg:text-2xl w-full">3등상</div>
+            <div class="flex justify-start gap-20  w-full  ">
+                <img class="" src="{day_img_1_prize3}" alt="">
+                <img class="" src="{day_img_2_prize3}" alt="">
+                <img class="" src="{day_img_3_prize3}" alt="">
+                <img class="" src="{day_img_4_prize3}" alt="">
+            </div>
         </div>
     </div>
     
