@@ -19,7 +19,11 @@
     const sdsb4dnight = ref(db, "sdsb4dnight");
     
     
-    let day_date_draw = "";
+  
+    let day_year_draw = "";
+    let day_month_draw = "";
+    let day_day_draw = "";
+    let day_next_all = "";
     let day_next_year = "";
     let day_next_month = "";
     let day_next_day = "";
@@ -44,6 +48,9 @@
     let day_img_3_prize3 = "images/bolakecilmerah-blank.png";
     let day_img_4_prize3 = "images/bolakecilungu-blank.png";
     let night_date_draw = "";
+    let night_year_draw = "";
+    let night_month_draw = "";
+    let night_day_draw = "";
     let night_next_draw = "";
     let night_next_year = "";
     let night_next_month = "";
@@ -69,10 +76,13 @@
     let temp_day_second = "00";
     onValue(sdsb4dday, (snapshot) => {
         const data = snapshot.val();
-        day_date_draw = data["datedraw"];
+        day_year_draw = dayjs(data["datedraw"]).format("YYYY");;
+        day_month_draw = dayjs(data["datedraw"]).format("MM");;
+        day_day_draw = dayjs(data["datedraw"]).format("DD");;
         day_next_year = dayjs(data["nextdraw"]).format("YYYY");
         day_next_month = dayjs(data["nextdraw"]).format("MM");
         day_next_day = dayjs(data["nextdraw"]).format("DD");
+        day_next_all = dayjs(data["nextdraw"]).format("YYYY년 MM월 DD일");
         day_prize1 = data["prize1"];
         day_prize2 = data["prize2"];
         day_prize3 = data["prize3"];
@@ -143,7 +153,10 @@
     onValue(sdsb4dnight, (snapshot) => {
         const data = snapshot.val();
         night_date_draw = data["datedraw"];
-        night_next_draw = dayjs(data["nextdraw"]).format("DD-MMM-YYYY");
+        night_year_draw = dayjs(data["datedraw"]).format("YYYY");
+        night_month_draw = dayjs(data["datedraw"]).format("MM");
+        night_day_draw = dayjs(data["datedraw"]).format("DD");
+        night_next_draw = dayjs(data["nextdraw"]).format("YYYY년 MM월 DD일");
         night_next_year = dayjs(data["nextdraw"]).format("YYYY");
         night_next_month = dayjs(data["nextdraw"]).format("MM");
         night_next_day = dayjs(data["nextdraw"]).format("DD");
@@ -270,7 +283,10 @@
 {#if panel_day}
     <section class="border-solid border-4  border-[#74aa63] mt-5 mb-10 rounded-3xl p-2 lg:p-5">
         <div class="flex flex-col my-2">
-            <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold">{title_livedraw}</p>
+            <div class="flex justify-between w-full">
+                <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold ">{title_livedraw}</p>
+                <div class="text-right text-[#74aa63] text-xs lg:text-xl">{day_next_all}</div>
+            </div>
             <div class="flex justify-around w-full gap-2  ">
                 <span class="countdown text-center font-poppins text-4xl lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
                     <span style="--value:{temp_day_hour};"></span>
@@ -292,7 +308,7 @@
         <img class="w-full z-0" src="images/background_xcferm.jpg" alt="">
         <div class="flex justify-items-center  w-full absolute top-2 left-2 lg:top-10 lg:left-10 ">
             <div class="text-white text-xs lg:text-2xl w-full mx-5">1등상</div>
-            <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{day_next_year}년 {day_next_month}월 {day_next_day}일</div>
+            <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{day_year_draw}년 {day_month_draw}월 {day_day_draw}일</div>
         </div>
         <div class="hidden lg:flex justify-around  w-full absolute top-24 left-0 ">
             <img class="w-[200px]" src="{day_img_1_prize1}" alt="">
@@ -351,7 +367,10 @@
 {#if panel_night}
     <section class="border-solid border-4  border-[#74aa63] mt-5 mb-10 rounded-3xl  p-2 lg:p-5">
         <div class="flex flex-col my-2">
-            <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold">{title_livedraw}</p>
+            <div class="flex justify-between w-full">
+                <p class="text-[#74aa63] text-lg lg:text-4xl font-poppins font-extrabold ">{title_livedraw}</p>
+                <div class="text-right text-[#74aa63] text-xs lg:text-xl">{night_next_draw}</div>
+            </div>
             <div class="flex justify-around w-full gap-2  ">
                 <span class="countdown text-center font-poppins text-4xl  lg:text-9xl bg-[#74aa63] text-white rounded-full p-5 lg:p-10">
                     <span style="--value:{temp_night_hour};"></span>
@@ -373,7 +392,7 @@
         <img class="w-full z-0" src="images/background_xcferm.jpg" alt="">
         <div class="flex justify-items-center  w-full absolute top-2 left-2 lg:top-10 lg:left-10 ">
             <div class="text-white text-xs lg:text-2xl w-full mx-5">1등상</div>
-            <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{night_next_year}년 {night_next_month}월 {night_next_day}일</div>
+            <div class="text-white text-xs lg:text-2xl w-full text-right mr-5 lg:mr-20">{night_year_draw}년 {night_month_draw}월 {night_day_draw}일</div>
         </div>
         <div class="hidden lg:flex justify-around  w-full absolute top-24 left-0 ">
             <img class="w-[200px]" src="{night_img_1_prize1}" alt="">
