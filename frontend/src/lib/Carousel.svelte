@@ -3,7 +3,7 @@
   let slider = [
     {img:"images/banner-1.jpg"},
     {img:"images/banner-2.jpg"},
-    {img:"images/banner-0.jpg"}
+    {img:"images/banner_kecil_3_ffvubg.jpg"}
   ]
 </script>
 <Carousel
